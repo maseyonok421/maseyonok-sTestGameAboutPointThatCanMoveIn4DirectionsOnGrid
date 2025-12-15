@@ -1,1 +1,0 @@
-It is just a test file to remind how to work with git :)
