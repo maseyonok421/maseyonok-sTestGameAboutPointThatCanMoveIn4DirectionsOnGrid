@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="maseyonok-sTestGameAboutPointThatCanMoveIn4DirectoriesOnGrid"
+run/main_scene="uid://ct3fjmk24n06b"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://singletones/GLOBAL.gd"

@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://ct3fjmk24n06b"]
+[gd_scene load_steps=3 format=3 uid="uid://ct3fjmk24n06b"]
+
+[ext_resource type="PackedScene" uid="uid://d24wgwq3572gw" path="res://prefabs/player.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://ho6t8aajhb4n" path="res://testBG.jpg" id="2_yqjtg"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(349, 413)
+
+[node name="TestBg" type="Sprite2D" parent="."]
+position = Vector2(451, 256.00006)
+scale = Vector2(2.8259037, 2.8259037)
+texture = ExtResource("2_yqjtg")
