@@ -2,8 +2,11 @@ extends Sprite2D
 
 
 func _ready() -> void:
-	var width  = ( Global.fullCellSize ) * 32
-	var height = ( Global.fullCellSize ) * 32
+	
+	print(Global.fullCellSize)
+	
+	var width  = ( Global.fullCellSize ) * 8
+	var height = ( Global.fullCellSize ) * 8
 	
 	var bgImg = Image.create(width, height, false, Image.FORMAT_L8);
 	for i in range(width):
