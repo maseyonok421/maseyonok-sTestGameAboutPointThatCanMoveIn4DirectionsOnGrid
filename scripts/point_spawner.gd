@@ -10,8 +10,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	
 	var pointInstance = pointScene.instantiate()
-	pointInstance.position = Vector2(
-		Global.fullCellSize, Global.fullCellSize
-	)
+	pointInstance.positionX = 0
+	pointInstance.positionY = 0
 	
 	add_child(pointInstance)

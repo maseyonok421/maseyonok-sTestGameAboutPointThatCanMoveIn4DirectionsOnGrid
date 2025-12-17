@@ -1,11 +1,19 @@
 extends Node2D
 
-var positionX = 0
-var positionY = 0
+@export var positionX = 0
+@export var positionY = 0
 var time = 0
 
-# Called when the node enters the scene tree for the first time.
+func moveToCoordinates() -> void:
+	global_position.x = \
+	positionX * ( Global.cellSize + Global.gridLineSize)
+	global_position.y = \
+	positionY * ( Global.cellSize + Global.gridLineSize)
+
+
 func _ready() -> void:
+	
+	moveToCoordinates()
 	
 	$Area2D/CollisionShape2D.scale = Vector2(
 		Global.cellSize/2, Global.cellSize/2
@@ -25,8 +33,7 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_pressed("ui_down"):
 		positionY += 1
 	
-	position.x = positionX * ( Global.cellSize + Global.gridLineSize)
-	position.y = positionY * ( Global.cellSize + Global.gridLineSize)
+	moveToCoordinates()
 	
 	time += (delta*250)
 	if (int)(time)%100 == 7 :

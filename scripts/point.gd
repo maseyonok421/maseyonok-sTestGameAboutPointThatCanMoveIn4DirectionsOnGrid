@@ -1,8 +1,17 @@
 extends Node2D
 
+@export var positionX = 0
+@export var positionY = 0
 
-# Called when the node enters the scene tree for the first time.
+func moveToCoordinates() -> void:
+	global_position.x = \
+	positionX * ( Global.cellSize + Global.gridLineSize)
+	global_position.y = \
+	positionY * ( Global.cellSize + Global.gridLineSize)
+
 func _ready() -> void:
+	
+	moveToCoordinates()
 	
 	$Area2D/CollisionShape2D.scale = Vector2(
 		Global.cellSize/2, Global.cellSize/2
@@ -18,6 +27,8 @@ func _ready() -> void:
 	
 	$Sprite.texture = ImageTexture.create_from_image(img)
 
+func _process(delta: float) -> void:
+	moveToCoordinates()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player") :
