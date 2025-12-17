@@ -3,10 +3,14 @@ extends Node2D
 var positionX = 0
 var positionY = 0
 var time = 0
-var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	$Area2D/CollisionShape2D.scale = Vector2(
+		Global.cellSize/2, Global.cellSize/2
+	)
+	
 	print("Player inicizlization: OK")
 
 
@@ -24,6 +28,7 @@ func _process(delta: float) -> void:
 	position.x = positionX * ( Global.cellSize + Global.gridLineSize)
 	position.y = positionY * ( Global.cellSize + Global.gridLineSize)
 	
-	time += (delta*25)
-	if (int)(time)%10 == 7 :
-		print("X = ", positionX, "; Y = ", positionY, "\n")
+	time += (delta*250)
+	if (int)(time)%100 == 7 :
+		print("X = ", positionX, "; Y = ", positionY, 
+		"; score = ", Global.score, "\n")

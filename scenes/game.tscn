@@ -6,13 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://b6q82v8ol3bjw" path="res://prefabs/point.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D"]
-position = Vector2(1, 1)
 script = ExtResource("1_lnu2h")
 
 [node name="bg" type="Sprite2D" parent="."]
 script = ExtResource("3_lnu2h")
 
-[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
-
 [node name="Point" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(356, 180)
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
