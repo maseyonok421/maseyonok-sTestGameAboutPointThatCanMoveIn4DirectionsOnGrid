@@ -5,8 +5,10 @@ func _ready() -> void:
 	
 	print(Global.fullCellSize)
 	
-	var width  = ( Global.fullCellSize ) * 9
-	var height = ( Global.fullCellSize ) * 9
+	var width  = ( Global.fullCellSize ) \
+			   * ( Global.gridSize*2 + 1)
+	var height = ( Global.fullCellSize ) \
+			   * ( Global.gridSize*2 + 1)
 	
 	var bgImg = Image.create(width, height, false, Image.FORMAT_L8);
 	for i in range(width):
