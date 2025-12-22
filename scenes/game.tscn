@@ -1,18 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct3fjmk24n06b"]
+[gd_scene load_steps=5 format=3 uid="uid://ct3fjmk24n06b"]
 
 [ext_resource type="Script" uid="uid://dh3cvjg3ekaqr" path="res://scripts/gameManager.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://d24wgwq3572gw" path="res://prefabs/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://djan4vsx0to1k" path="res://prefabs/point_spawner.tscn" id="2_iywne"]
 [ext_resource type="Script" uid="uid://bw3u537vgvml3" path="res://scripts/bgGenerator.gd" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://b6q82v8ol3bjw" path="res://prefabs/point.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lnu2h")
 
 [node name="bg" type="Sprite2D" parent="."]
 script = ExtResource("3_lnu2h")
-
-[node name="Point" parent="." instance=ExtResource("4_lbhrr")]
 
 [node name="PointSpawner" parent="." instance=ExtResource("2_iywne")]
 position = Vector2(12, -61)

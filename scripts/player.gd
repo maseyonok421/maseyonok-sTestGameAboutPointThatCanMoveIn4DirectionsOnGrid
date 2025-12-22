@@ -4,6 +4,12 @@ extends Node2D
 @export var positionY = 0
 var time = 0
 
+var direction = -1 # -1 - off;    0 - left; 1 - up; 
+#                     2 - right;  3 - down;
+
+var isMovingX = 0
+var isMovingY = 0
+
 func moveToCoordinates() -> void:
 	global_position.x = \
 	positionX * ( Global.cellSize + Global.gridLineSize)
@@ -26,12 +32,20 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if   Input.is_action_just_pressed("ui_left"):
 		positionX -= 1
+		direction = 0
+		$moveTimer.start()
 	elif Input.is_action_just_pressed("ui_right"):
 		positionX += 1
+		direction = 2
+		$moveTimer.start()
 	elif Input.is_action_just_pressed("ui_up"):
 		positionY -= 1
+		direction = 1
+		$moveTimer.start()
 	elif Input.is_action_just_pressed("ui_down"):
 		positionY += 1
+		direction = 3
+		$moveTimer.start()
 	
 	moveToCoordinates()
 	
@@ -39,3 +53,16 @@ func _process(delta: float) -> void:
 	if (int)(time)%100 == 7 :
 		print("X = ", positionX, "; Y = ", positionY, 
 		"; score = ", Global.score, "\n")
+
+
+func _on_move_timer_timeout() -> void:
+	if   direction == -1:
+		pass
+	elif direction == 0:
+		positionX -= 1
+	elif direction == 1:
+		positionY -= 1
+	elif direction == 2:
+		positionX += 1
+	elif direction == 3:
+		positionY += 1
