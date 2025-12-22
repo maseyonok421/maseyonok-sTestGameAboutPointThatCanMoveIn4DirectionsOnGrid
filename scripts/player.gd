@@ -30,6 +30,25 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if   Input.is_action_just_released("ui_left")  \
+	&& direction == 0:
+		direction = -1
+		$moveTimer.stop()
+	elif Input.is_action_just_released("ui_up")  \
+	&& direction == 1:
+		direction = -1
+		$moveTimer.stop()
+	elif Input.is_action_just_released("ui_right")  \
+	&& direction == 2:
+		direction = -1
+		$moveTimer.stop()
+	elif Input.is_action_just_released("ui_down")  \
+	&& direction == 3:
+		direction = -1
+		$moveTimer.stop()
+
+	
 	if   Input.is_action_just_pressed("ui_left"):
 		positionX -= 1
 		direction = 0
