@@ -16,6 +16,15 @@ func moveToCoordinates() -> void:
 	global_position.y = \
 	positionY * ( Global.cellSize + Global.gridLineSize)
 
+func checkMovement() -> void:
+	if   positionX >  Global.gridSize:
+		positionX  =  Global.gridSize
+	elif positionX < -Global.gridSize:
+		positionX  = -Global.gridSize
+	elif positionY >  Global.gridSize:
+		positionY  =  Global.gridSize
+	elif positionY < -Global.gridSize:
+		positionY  = -Global.gridSize
 
 func _ready() -> void:
 	
@@ -67,6 +76,7 @@ func _process(delta: float) -> void:
 		$moveTimer.start()
 	
 	moveToCoordinates()
+	checkMovement()
 	
 	time += (delta*250)
 	if (int)(time)%100 == 7 :
