@@ -1,5 +1,7 @@
 extends Node2D
 
+signal getPlayerCoords(x: int, y: int)
+
 @export var positionX = 0
 @export var positionY = 0
 var time = 0
@@ -40,10 +42,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	$Camera/ScoreLabel.text = str(Global.score)
-	$Camera/PositionInfoLabel.text = \
-	"X = " + str(positionX) + "; Y = " + str(positionY)
-	
 	if   Input.is_action_just_released("ui_left")  \
 	&& direction == 0:
 		direction = -1
@@ -81,6 +79,7 @@ func _process(delta: float) -> void:
 	
 	moveToCoordinates()
 	checkMovement()
+	emit_signal("getPlayerCoords", positionX, positionY)
 	
 	time += (delta*250)
 	if (int)(time)%100 == 7 :

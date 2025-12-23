@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2kww08j1twov"]
+
+[ext_resource type="Script" uid="uid://d0ovqlpq8v1wa" path="res://scripts/camera.gd" id="1_70n02"]
+
+[node name="Camera" type="Camera2D"]
+script = ExtResource("1_70n02")
+camSpeed = 3.5
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = -582.0
+offset_top = -325.0
+offset_right = -391.0
+offset_bottom = -247.0
+theme_override_font_sizes/font_size = 50
+
+[node name="PositionInfoLabel" type="Label" parent="."]
+offset_left = -582.0
+offset_top = -237.0
+offset_right = -391.0
+offset_bottom = -159.0
+theme_override_font_sizes/font_size = 50
