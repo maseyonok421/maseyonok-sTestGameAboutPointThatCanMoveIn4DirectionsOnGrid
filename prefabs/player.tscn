@@ -11,6 +11,20 @@ script = ExtResource("1_72ieh")
 
 [node name="Camera" type="Camera2D" parent="."]
 
+[node name="ScoreLabel" type="Label" parent="Camera"]
+offset_left = -582.0
+offset_top = -325.0
+offset_right = -391.0
+offset_bottom = -247.0
+theme_override_font_sizes/font_size = 50
+
+[node name="PositionInfoLabel" type="Label" parent="Camera"]
+offset_left = -582.0
+offset_top = -237.0
+offset_right = -391.0
+offset_bottom = -159.0
+theme_override_font_sizes/font_size = 50
+
 [node name="Sprite" type="Sprite2D" parent="."]
 script = ExtResource("2_4dohe")
 

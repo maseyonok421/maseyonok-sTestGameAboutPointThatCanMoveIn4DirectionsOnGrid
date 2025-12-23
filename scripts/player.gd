@@ -40,6 +40,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	$Camera/ScoreLabel.text = str(Global.score)
+	$Camera/PositionInfoLabel.text = \
+	"X = " + str(positionX) + "; Y = " + str(positionY)
+	
 	if   Input.is_action_just_released("ui_left")  \
 	&& direction == 0:
 		direction = -1
