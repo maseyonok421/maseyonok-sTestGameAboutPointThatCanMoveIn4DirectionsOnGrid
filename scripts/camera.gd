@@ -2,11 +2,13 @@ extends Camera2D
 
 var positionX
 var positionY
-
 var playerX
 var playerY
 
+var curZoom
+
 @export var camSpeed = 1.0
+@export var zoomSpeed = 1.0
 
 func moveToCoordinates() -> void:
 	global_position.x = \
@@ -24,6 +26,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	curZoom = 1 + ( abs(playerX-positionX) \
+	+ abs(playerY-positionY) ) * zoomSpeed
+	zoom = Vector2(curZoom, curZoom)
 	
 	get_tree().get_first_node_in_group("Player").getPlayerCoords.connect(_on_getting_player_coords)
 	$ScoreLabel.text = str(Global.score)
