@@ -21,17 +21,17 @@ camSpeed = 3.5
 zoomSpeed = 0.035
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = -582.0
-offset_top = -325.0
-offset_right = -391.0
-offset_bottom = -247.0
+offset_left = -326.0
+offset_top = -189.0
+offset_right = -135.0
+offset_bottom = -111.0
 theme_override_font_sizes/font_size = 50
 
 [node name="PositionInfoLabel" type="Label" parent="."]
-offset_left = -582.0
-offset_top = -237.0
-offset_right = -391.0
-offset_bottom = -159.0
+offset_left = -422.0
+offset_top = -117.0
+offset_right = -231.0
+offset_bottom = -39.0
 theme_override_font_sizes/font_size = 50
 
 [node name="scanLinesShader" type="ColorRect" parent="."]
