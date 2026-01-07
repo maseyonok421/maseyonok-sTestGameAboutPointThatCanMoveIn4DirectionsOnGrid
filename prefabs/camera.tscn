@@ -1,8 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2kww08j1twov"]
+[gd_scene load_steps=14 format=3 uid="uid://c2kww08j1twov"]
 
 [ext_resource type="Script" uid="uid://d0ovqlpq8v1wa" path="res://scripts/camera.gd" id="1_70n02"]
 [ext_resource type="Shader" uid="uid://dym1nyw2qj70n" path="res://shaders/scanLinesShader.gdshader" id="2_6p8hw"]
 [ext_resource type="Shader" uid="uid://74uexwr1x753" path="res://shaders/fishEyeShader.gdshader" id="3_qwx7c"]
+[ext_resource type="Shader" path="res://shaders/smthInterestingShader.gdshader" id="4_6ayxh"]
+[ext_resource type="Shader" uid="uid://bei273f3e1o3w" path="res://shaders/chromaticAbberationShader.gdshader" id="5_trxf1"]
+[ext_resource type="Shader" uid="uid://do5agx28q3fuk" path="res://shaders/filmGrainShader.gdshader" id="6_rrdqj"]
+[ext_resource type="Shader" uid="uid://d1bql1rmvfe7x" path="res://shaders/multishader.gdshader" id="7_ffi68"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trxf1"]
+shader = ExtResource("4_6ayxh")
+shader_parameter/displacement = 9.0
+shader_parameter/height = 0.7
+shader_parameter/width = 0.5
+shader_parameter/fade = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrdqj"]
+shader = ExtResource("5_trxf1")
+shader_parameter/r_displacement = Vector2(3, 0)
+shader_parameter/g_displacement = Vector2(0, 2)
+shader_parameter/b_displacement = Vector2(-4, 0)
+shader_parameter/height = 0.7
+shader_parameter/width = 0.5
+shader_parameter/fade = 0.4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6p8hw"]
 shader = ExtResource("2_6p8hw")
@@ -14,6 +34,25 @@ shader_parameter/screenYOffset = 0.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ayxh"]
 shader = ExtResource("3_qwx7c")
 shader_parameter/effect_amount = 2.0000000298024
+shader_parameter/amount = 0.22
+shader_parameter/speed = 0.016
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xymdj"]
+shader = ExtResource("7_ffi68")
+shader_parameter/r_displacement = Vector2(3, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-3, 0)
+shader_parameter/height = 0.7
+shader_parameter/width = 0.5
+shader_parameter/fade = 0.75
+shader_parameter/effect_amount = 2.0
+shader_parameter/amount = 0.42
+shader_parameter/speed = 0.016
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffi68"]
+shader = ExtResource("6_rrdqj")
+shader_parameter/amount = 0.41999999061216
+shader_parameter/speed = 0.01600000076
 
 [node name="Camera" type="Camera2D"]
 script = ExtResource("1_70n02")
@@ -34,7 +73,24 @@ offset_right = -231.0
 offset_bottom = -39.0
 theme_override_font_sizes/font_size = 50
 
+[node name="smthInterestingShader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_trxf1")
+offset_left = -646.0
+offset_top = -363.0
+offset_right = 642.0
+offset_bottom = 367.0
+
+[node name="chromaticAbberationShader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_rrdqj")
+offset_left = -651.0
+offset_top = -371.0
+offset_right = 645.0
+offset_bottom = 368.0
+
 [node name="scanLinesShader" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_6p8hw")
 offset_left = -647.0
 offset_top = -368.0
@@ -48,3 +104,18 @@ offset_left = -646.0
 offset_top = -364.0
 offset_right = 646.0
 offset_bottom = 364.0
+
+[node name="multiShader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xymdj")
+offset_left = -649.0
+offset_top = -367.0
+offset_right = 642.0
+offset_bottom = 370.0
+
+[node name="filmGrainShader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_ffi68")
+offset_left = -644.0
+offset_top = -370.0
+offset_right = 644.0
+offset_bottom = 363.0
