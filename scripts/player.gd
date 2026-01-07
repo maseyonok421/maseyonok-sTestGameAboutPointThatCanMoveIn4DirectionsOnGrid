@@ -80,11 +80,6 @@ func _process(delta: float) -> void:
 	moveToCoordinates()
 	checkMovement()
 	emit_signal("getPlayerCoords", positionX, positionY)
-	
-	time += (delta*250)
-	if (int)(time)%100 == 7 :
-		print("X = ", positionX, "; Y = ", positionY, 
-		"; score = ", Global.score, "\n")
 
 
 func _on_move_timer_timeout() -> void:
