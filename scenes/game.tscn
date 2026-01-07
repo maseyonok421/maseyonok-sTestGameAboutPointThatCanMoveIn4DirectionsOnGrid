@@ -41,7 +41,7 @@ position = Vector2(12, -61)
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 
-[node name="Camera" parent="." instance=ExtResource("5_iywne")]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_iywne")
+
+[node name="Camera" parent="." instance=ExtResource("5_iywne")]
