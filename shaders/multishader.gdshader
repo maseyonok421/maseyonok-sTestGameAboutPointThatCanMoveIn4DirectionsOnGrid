@@ -15,8 +15,9 @@ uniform float fade  : hint_range(0.0, 1.0, 0.1) = 0.75;
 uniform float effect_amount : hint_range(0, 2.5, 0.1) = 2.0;
 
 //for Film Grain
-uniform float amount : hint_range(0.0, 5.3, 0.01) = 0.42;
-uniform float speed  : hint_range(0.0, 0.5, 0.001)= 0.016 ;
+uniform float amount1 : hint_range(0.0, 5.3, 0.01) = 0.42;
+uniform float amount2 : hint_range(0.0, 5.3, 0.01) = 0.22;
+uniform float speed   : hint_range(0.0, 0.5, 0.001)= 0.016 ;
 
 float random(vec2 st){
 	return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
@@ -50,9 +51,11 @@ void fragment() {
 	float time = TIME*speed;
 	float grain = random(UV + time) - 0.5;
 	
-	col.r = redColor; col.g = greenColor; col.b = blueColor;
-	col.rgb += grain*amount;
+	vec3 col1 = col;
+	col1.r = redColor; col1.g = greenColor; col1.b = blueColor;
+	col.rgb += grain*amount2;
+	col1.rgb+= grain*amount1;
 	
-	COLOR = vec4(col.rgb, dist-fade);
+	COLOR = mix(vec4(col, 1.0), vec4(col1, 1.0), dist-fade);
 	
 }
