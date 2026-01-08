@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d30lpy5cn5rej"]
+
+[ext_resource type="Script" uid="uid://cn7cjosqqbkcp" path="res://scripts/player_remnant.gd" id="2_h8p6a"]
+
+[node name="playerRemnantSprite" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.49019608)
+script = ExtResource("2_h8p6a")
+fadeAmount = 0.05
+
+[node name="faderTimer" type="Timer" parent="."]
+wait_time = 0.02
+autostart = true
+
+[connection signal="timeout" from="faderTimer" to="." method="_on_fader_timer_timeout"]

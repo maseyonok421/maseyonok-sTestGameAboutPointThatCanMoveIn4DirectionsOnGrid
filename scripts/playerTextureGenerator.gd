@@ -1,5 +1,7 @@
 extends Sprite2D
 
+@export var positionX = 0
+@export var positionY = 0
 
 func _ready() -> void:
 	
