@@ -12,8 +12,8 @@ shader_parameter/height = 0.7
 shader_parameter/width = 0.5
 shader_parameter/fade = 0.75
 shader_parameter/effect_amount = 2.0
-shader_parameter/amount1 = 0.42
-shader_parameter/amount2 = 0.22
+shader_parameter/amountMx = 0.57999998703584
+shader_parameter/amountMn = 0.02
 shader_parameter/speed = 0.016
 
 [node name="Camera" type="Camera2D"]
