@@ -1,14 +1,22 @@
 extends Node2D
 
+signal redrawGrid()
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$bg.position += Vector2(
-		Global.fullCellSize/2 + Global.gridLineSize/2-0.5,
-		Global.fullCellSize/2 + Global.gridLineSize/2-0.5)
+	#$bg.position += Vector2(
+		#Global.fullCellSize/2 + Global.gridLineSize/2-0.5,
+		#Global.fullCellSize/2 + Global.gridLineSize/2-0.5)
 	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
-	pass
+	if Global.score >= Global.xpForLevels:
+		Global.curLevel += 1
+		Global.xpForLevels += \
+		floor(Global.xpForLevels*Global.xpKoef)
+		
+		if Global.curLevel == 1:
+			Global.gridSize += 1
+		
+		emit_signal("redrawGrid")

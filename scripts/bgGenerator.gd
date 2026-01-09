@@ -1,9 +1,6 @@
 extends Sprite2D
 
-
-func _ready() -> void:
-	
-	print(Global.fullCellSize)
+func drawGrid():
 	
 	var width  = ( Global.fullCellSize ) \
 			   * ( Global.gridSize*2 + 1) + Global.gridLineSize-1
@@ -21,7 +18,20 @@ func _ready() -> void:
 	
 	texture = ImageTexture.create_from_image(bgImg)
 	
-	position = Vector2(
-		-Global.fullCellSize/2-Global.gridLineSize/2+0.5,
-		-Global.fullCellSize/2-Global.gridLineSize/2+0.5
-	)
+	#position = Vector2(
+		#-Global.fullCellSize/2-Global.gridLineSize/2+0.5,
+		#-Global.fullCellSize/2-Global.gridLineSize/2+0.5
+	#)
+	position = Vector2(0, 0)
+	global_position = Vector2(0, 0)
+
+
+func redraw():
+	print(global_position, ' ', position)
+	drawGrid()
+	print(global_position, ' ', position)
+
+
+func _ready() -> void:
+	drawGrid()
+	get_parent().redrawGrid.connect(redraw)

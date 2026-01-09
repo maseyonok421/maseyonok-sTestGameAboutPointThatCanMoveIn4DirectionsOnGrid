@@ -4,6 +4,9 @@ const gridLineSize = 6
 const cellSize = 64
 var fullCellSize = gridLineSize + cellSize
 
-var gridSize = 5
+var curLevel = 0
+var xpForLevels = 5
+var xpKoef = 1.7
+var gridSize = 2
 
 var score = 0
