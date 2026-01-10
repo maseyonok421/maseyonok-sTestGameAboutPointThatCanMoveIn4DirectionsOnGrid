@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2kww08j1twov"]
+[gd_scene load_steps=9 format=3 uid="uid://c2kww08j1twov"]
 
 [ext_resource type="Script" uid="uid://d0ovqlpq8v1wa" path="res://scripts/camera.gd" id="1_70n02"]
+[ext_resource type="Script" uid="uid://b37odoswjqpg3" path="res://scripts/xp_pb.gd" id="2_qwx7c"]
 [ext_resource type="Shader" uid="uid://d1bql1rmvfe7x" path="res://shaders/multishader.gdshader" id="7_ffi68"]
 
 [sub_resource type="Gradient" id="Gradient_6p8hw"]
@@ -47,7 +48,7 @@ offset_right = -231.0
 offset_bottom = -39.0
 theme_override_font_sizes/font_size = 50
 
-[node name="xpPG" type="TextureProgressBar" parent="."]
+[node name="xpPBBG" type="TextureProgressBar" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -65,6 +66,15 @@ fill_mode = 4
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_qwx7c")
 texture_progress = SubResource("GradientTexture2D_trxf1")
+
+[node name="xpPB" type="ProgressBar" parent="xpPBBG"]
+layout_mode = 0
+offset_left = 13.75
+offset_top = 20.0
+offset_right = 120.75
+offset_bottom = 116.0
+fill_mode = 3
+script = ExtResource("2_qwx7c")
 
 [node name="multiShader" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_xymdj")
