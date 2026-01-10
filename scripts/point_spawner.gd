@@ -1,18 +1,22 @@
 extends Node2D
 
-var maxPointsOnScreen = 4
 var curNumberOfPoints = 0
 var listOfPoints = []
 var pointScene = preload("res://prefabs//point.tscn")
 
-# Called when the node enters the scene tree for the first time.
+
+func changeWaitTime():
+	$Timer.wait_time -= 0.225
+	$Timer.wait_time = max(0.1, $Timer.wait_time)
+
 func _ready() -> void:
+	get_parent().changeRespawnTime.connect(changeWaitTime)
 	print("Point Spawner Inicialization: OK")
 
 
 func _on_timer_timeout() -> void:
 	
-	if ( curNumberOfPoints >= maxPointsOnScreen ):
+	if ( curNumberOfPoints >= Global.maxPointsOnScreen ):
 		return
 	
 	var pointInstance = pointScene.instantiate()

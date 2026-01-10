@@ -1,6 +1,7 @@
 extends Node2D
 
 signal redrawGrid()
+signal changeRespawnTime()
 
 func _ready() -> void:
 	#$bg.position += Vector2(
@@ -15,8 +16,13 @@ func _process(delta: float) -> void:
 		Global.curLevel += 1
 		Global.xpForLevels += \
 		floor(Global.xpForLevels*Global.xpKoef)
+		print(Global.xpForLevels)
 		
-		if Global.curLevel == 1:
+		if Global.curLevel == 1 || Global.curLevel == 4 || Global.curLevel == 6:
 			Global.gridSize += 1
-		
-		emit_signal("redrawGrid")
+			emit_signal("redrawGrid")
+		if Global.curLevel == 2 || Global.curLevel == 4 || Global.curLevel == 6:
+			Global.maxPointsOnScreen += 4
+		if Global.curLevel == 2 || Global.curLevel == 3 || Global.curLevel == 5:
+			emit_signal("changeRespawnTime")
+			
