@@ -32,9 +32,11 @@ func _process(delta: float) -> void:
 	zoom = Vector2(curZoom, curZoom)
 	
 	get_tree().get_first_node_in_group("Player").getPlayerCoords.connect(_on_getting_player_coords)
-	$ScoreLabel.text = str(Global.score)
+	$ScoreLabel.text = "score="+str(Global.score)
 	$PositionInfoLabel.text = \
-	"X = " + str(playerX) + "; Y = " + str(playerY)
+	"X=" + str(playerX) + "; Y=" + str(playerY)
+	$levelInfoLabel.text = \
+	"level=" + str(Global.curLevel)
 	
 	positionX = lerp(1.0*positionX, 1.0*playerX, delta*camSpeed)
 	positionY = lerp(1.0*positionY, 1.0*playerY, delta*camSpeed)

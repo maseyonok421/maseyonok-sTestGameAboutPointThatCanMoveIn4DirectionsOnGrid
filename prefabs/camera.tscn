@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2kww08j1twov"]
+[gd_scene load_steps=10 format=3 uid="uid://c2kww08j1twov"]
 
 [ext_resource type="Script" uid="uid://d0ovqlpq8v1wa" path="res://scripts/camera.gd" id="1_70n02"]
+[ext_resource type="FontFile" uid="uid://dlhtm3ahiq3ly" path="res://fonts/WebPlus IBM MDA/web_ibm_mda.ttf" id="2_6ayxh"]
 [ext_resource type="Script" uid="uid://b37odoswjqpg3" path="res://scripts/xp_pb.gd" id="2_qwx7c"]
 [ext_resource type="Shader" uid="uid://d1bql1rmvfe7x" path="res://shaders/multishader.gdshader" id="7_ffi68"]
 
@@ -35,18 +36,34 @@ camSpeed = 3.5
 zoomSpeed = 0.035
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = -329.0
+offset_left = -409.0
 offset_top = -189.0
-offset_right = -138.0
+offset_right = -184.0
 offset_bottom = -111.0
+theme_override_colors/font_color = Color(1.034, 0.563, 1.353, 1)
+theme_override_fonts/font = ExtResource("2_6ayxh")
 theme_override_font_sizes/font_size = 50
+text = "dsdfdfs"
+
+[node name="levelInfoLabel" type="Label" parent="."]
+offset_left = -408.0
+offset_top = -133.0
+offset_right = -215.0
+offset_bottom = -55.0
+theme_override_colors/font_color = Color(1.034, 0.563, 1.353, 1)
+theme_override_fonts/font = ExtResource("2_6ayxh")
+theme_override_font_sizes/font_size = 50
+text = "sdfdsf"
 
 [node name="PositionInfoLabel" type="Label" parent="."]
-offset_left = -422.0
-offset_top = -117.0
-offset_right = -231.0
-offset_bottom = -39.0
+offset_left = -408.0
+offset_top = 148.0
+offset_right = -215.0
+offset_bottom = 226.0
+theme_override_colors/font_color = Color(1.034, 0.563, 1.353, 1)
+theme_override_fonts/font = ExtResource("2_6ayxh")
 theme_override_font_sizes/font_size = 50
+text = "sdfdsf"
 
 [node name="xpPBBG" type="TextureProgressBar" parent="."]
 anchors_preset = 7
@@ -73,6 +90,9 @@ offset_left = 13.75
 offset_top = 20.0
 offset_right = 120.75
 offset_bottom = 116.0
+theme_override_colors/font_color = Color(1.034, 0.563, 1.353, 1)
+theme_override_fonts/font = ExtResource("2_6ayxh")
+theme_override_font_sizes/font_size = 50
 fill_mode = 3
 script = ExtResource("2_qwx7c")
 
