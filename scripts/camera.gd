@@ -37,6 +37,9 @@ func _process(delta: float) -> void:
 	"X=" + str(playerX) + "; Y=" + str(playerY)
 	$levelInfoLabel.text = \
 	"level=" + str(Global.curLevel)
+	$xpInfoLabel.text = \
+	str(int(Global.score - Global.xpForPrev)) \
+	+"/"+ str(int(Global.xpForLevels - Global.xpForPrev))
 	
 	positionX = lerp(1.0*positionX, 1.0*playerX, delta*camSpeed)
 	positionY = lerp(1.0*positionY, 1.0*playerY, delta*camSpeed)
