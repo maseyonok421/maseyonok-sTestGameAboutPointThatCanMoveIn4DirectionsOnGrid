@@ -10,6 +10,10 @@ var curZoom
 @export var camSpeed = 1.0
 @export var zoomSpeed = 1.0
 
+func _showNewLevel():
+	$lvlTransitionBG.modulate = Color(1, 1, 1, 1)
+	$lvlTransitionBG/decayTimer.start()
+
 func moveToCoordinates() -> void:
 	global_position.x = \
 	positionX * ( Global.cellSize + Global.gridLineSize)
@@ -21,6 +25,8 @@ func _ready() -> void:
 	positionY = 0
 	playerX = 0
 	playerY = 0
+	get_tree().get_first_node_in_group("Player").getPlayerCoords.connect(_on_getting_player_coords)
+	get_parent().showNewLevel.connect(_showNewLevel)
 	print("Camera Inicialization OK")
 
 
@@ -31,7 +37,6 @@ func _process(delta: float) -> void:
 	+ abs(playerY-positionY) ) * zoomSpeed
 	zoom = Vector2(curZoom, curZoom)
 	
-	get_tree().get_first_node_in_group("Player").getPlayerCoords.connect(_on_getting_player_coords)
 	$ScoreLabel.text = "score="+str(Global.score)
 	$PositionInfoLabel.text = \
 	"X=" + str(playerX) + "; Y=" + str(playerY)
@@ -50,3 +55,13 @@ func _process(delta: float) -> void:
 func _on_getting_player_coords(x, y):
 	playerX = x
 	playerY = y
+
+
+func _on_decay_timer_timeout() -> void:
+	var cur = $lvlTransitionBG.modulate.r
+	var amount = 0.07
+	$lvlTransitionBG.modulate = Color(cur-amount, cur-amount, cur-amount, cur-amount)
+	if cur <= 0.5:
+		$lvlTransitionBG/decayTimer.stop()
+		$lvlTransitionBG.modulate = Color(0, 0, 0, 0)
+	print("OK Decay Timer")

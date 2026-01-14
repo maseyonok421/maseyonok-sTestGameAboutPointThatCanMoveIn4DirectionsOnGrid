@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2kww08j1twov"]
+[gd_scene load_steps=16 format=3 uid="uid://c2kww08j1twov"]
 
 [ext_resource type="Script" uid="uid://d0ovqlpq8v1wa" path="res://scripts/camera.gd" id="1_70n02"]
 [ext_resource type="FontFile" uid="uid://6cf8elgrtmi6" path="res://fonts/WebPlus IBM MDA/web_ibm_mda.ttf" id="2_6ayxh"]
 [ext_resource type="Script" uid="uid://b37odoswjqpg3" path="res://scripts/xp_pb.gd" id="2_qwx7c"]
+[ext_resource type="Shader" uid="uid://bwea7ee11tyxv" path="res://shaders/smthInterestingShader.gdshader" id="5_trxf1"]
+[ext_resource type="Shader" uid="uid://mak0agtei4xa" path="res://shaders/lvlTransitionNoise.gdshader" id="6_rrdqj"]
 [ext_resource type="Shader" uid="uid://d1bql1rmvfe7x" path="res://shaders/multishader.gdshader" id="7_ffi68"]
+[ext_resource type="Shader" uid="uid://dym1nyw2qj70n" path="res://shaders/scanLinesShader.gdshader" id="7_xymdj"]
 
 [sub_resource type="Gradient" id="Gradient_6p8hw"]
 colors = PackedColorArray(0, 0, 0, 0.2509804, 0, 0, 0, 0.2509804)
@@ -29,6 +32,25 @@ shader_parameter/effect_amount = 2.0
 shader_parameter/amountMx = 0.57999998703584
 shader_parameter/amountMn = 0.02
 shader_parameter/speed = 0.016
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrdqj"]
+shader = ExtResource("5_trxf1")
+shader_parameter/displacement = 3.0
+shader_parameter/height = 0.7
+shader_parameter/width = 0.5
+shader_parameter/fade = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffi68"]
+shader = ExtResource("6_rrdqj")
+shader_parameter/amount = 5.30000019073486
+shader_parameter/speed = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gchb6"]
+shader = ExtResource("7_xymdj")
+shader_parameter/lineThickness = 10.0
+shader_parameter/lineSpacing = 15.53100073446262
+shader_parameter/lineBrightness = 0.0
+shader_parameter/screenYOffset = 0.0
 
 [node name="Camera" type="Camera2D"]
 script = ExtResource("1_70n02")
@@ -113,3 +135,60 @@ offset_left = -649.0
 offset_top = -367.0
 offset_right = 642.0
 offset_bottom = 370.0
+
+[node name="lvlTransitionShader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_rrdqj")
+offset_left = -652.0
+offset_top = -369.0
+offset_right = 643.0
+offset_bottom = 370.0
+
+[node name="lvlTransitionBG" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_ffi68")
+offset_left = -642.0
+offset_top = -363.0
+offset_right = 642.0
+offset_bottom = 364.0
+
+[node name="lableBG" type="ColorRect" parent="lvlTransitionBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -652.0
+offset_top = -69.5
+offset_right = 648.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+
+[node name="Label" type="Label" parent="lvlTransitionBG"]
+material = SubResource("ShaderMaterial_gchb6")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.5
+offset_top = -11.5
+offset_right = 81.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6ayxh")
+theme_override_font_sizes/font_size = 80
+text = "NEW LEVEL REACHED"
+
+[node name="decayTimer" type="Timer" parent="lvlTransitionBG"]
+wait_time = 0.1
+
+[connection signal="timeout" from="lvlTransitionBG/decayTimer" to="." method="_on_decay_timer_timeout"]
