@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5yfb1drppe2u"
+path="res://.godot/imported/[[ Naoki 直樹 ]] Hidden.mp3-7fb6bef6fef7a6792956d3ff41f389b6.mp3str"
+
+[deps]
+
+source_file="res://mus/[[ Naoki 直樹 ]] Hidden.mp3"
+dest_files=["res://.godot/imported/[[ Naoki 直樹 ]] Hidden.mp3-7fb6bef6fef7a6792956d3ff41f389b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgk24id6sdnfj"]
+
+[ext_resource type="AudioStream" uid="uid://5yfb1drppe2u" path="res://mus/[[ Naoki 直樹 ]] Hidden.mp3" id="1_dmt2j"]
+[ext_resource type="Script" uid="uid://cq2rmsrp1w5na" path="res://scripts/mus_manager.gd" id="1_otg2m"]
+[ext_resource type="AudioStream" uid="uid://c1na77ctteteh" path="res://mus/[viol3t] carts that only last 2 days.mp3" id="3_d4i07"]
+[ext_resource type="AudioStream" uid="uid://d3i5eqwiq517v" path="res://mus/[brexkdxnce] brexkdxnce - insomniac lover.exe.mp3" id="4_nynb5"]
+[ext_resource type="AudioStream" uid="uid://no3hwcfe2430" path="res://mus/[ash111] its between an ironic, or fake deep title. either way it has anime girls.mp3" id="5_dn2of"]
+
+[node name="musManager" type="AudioStreamPlayer"]
+volume_db = -5.0
+autoplay = true
+script = ExtResource("1_otg2m")
+trackList = Array[AudioStream]([ExtResource("1_dmt2j"), ExtResource("3_d4i07"), ExtResource("4_nynb5"), ExtResource("5_dn2of")])
+
+[connection signal="finished" from="." to="." method="_on_finished"]

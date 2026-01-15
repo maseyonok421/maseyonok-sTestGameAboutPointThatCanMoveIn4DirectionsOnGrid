@@ -4,9 +4,11 @@ var curLbl = 0
 var labels
 
 @export var gameScene = preload("res://scenes/game.tscn").instantiate()
+#@export var musScene  = load("res://scenes/mus_manager.tscn").instantiate()
 
 func _ready() -> void:
 	labels = [$newGame, $load, $exit]
+	#get_tree().get_root().add_child(musScene)
 	print("Main Menu Inicizlization OK")
 
 func changeSceneTo(scn):

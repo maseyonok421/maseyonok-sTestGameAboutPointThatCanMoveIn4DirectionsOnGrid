@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1na77ctteteh"
+path="res://.godot/imported/[viol3t] carts that only last 2 days.mp3-f00d2d943e8ef4070b689ee1cf5912e2.mp3str"
+
+[deps]
+
+source_file="res://mus/[viol3t] carts that only last 2 days.mp3"
+dest_files=["res://.godot/imported/[viol3t] carts that only last 2 days.mp3-f00d2d943e8ef4070b689ee1cf5912e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

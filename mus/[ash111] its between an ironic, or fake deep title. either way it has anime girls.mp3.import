@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://no3hwcfe2430"
+path="res://.godot/imported/[ash111] its between an ironic, or fake deep title. either way it has anime girls.mp3-14bec9f2b00aab5e1d017a6f9c3e1353.mp3str"
+
+[deps]
+
+source_file="res://mus/[ash111] its between an ironic, or fake deep title. either way it has anime girls.mp3"
+dest_files=["res://.godot/imported/[ash111] its between an ironic, or fake deep title. either way it has anime girls.mp3-14bec9f2b00aab5e1d017a6f9c3e1353.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
