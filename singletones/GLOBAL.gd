@@ -7,7 +7,7 @@ var fullCellSize = gridLineSize + cellSize
 var curLevel = 0
 var xpForPrev = 0
 var xpForLevels = 5
-var xpKoef = 1.63
+var xpKoef = 1.73
 var gridSize = 2
 
 var maxPointsOnScreen = 4

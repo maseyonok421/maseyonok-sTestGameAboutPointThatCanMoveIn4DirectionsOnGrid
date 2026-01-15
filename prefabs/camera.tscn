@@ -189,6 +189,6 @@ theme_override_font_sizes/font_size = 80
 text = "NEW LEVEL REACHED"
 
 [node name="decayTimer" type="Timer" parent="lvlTransitionBG"]
-wait_time = 0.1
+wait_time = 0.08
 
 [connection signal="timeout" from="lvlTransitionBG/decayTimer" to="." method="_on_decay_timer_timeout"]

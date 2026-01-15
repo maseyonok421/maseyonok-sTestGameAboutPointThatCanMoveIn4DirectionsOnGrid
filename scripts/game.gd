@@ -21,11 +21,14 @@ func _process(delta: float) -> void:
 		
 		emit_signal("showNewLevel")
 		
-		if Global.curLevel == 1 || Global.curLevel == 4 || Global.curLevel == 5:
+		if Global.curLevel == 1 || Global.curLevel == 4 || \
+		Global.curLevel == 5 || Global.curLevel == 6:
 			Global.gridSize += 1
 			emit_signal("redrawGrid")
-		if Global.curLevel == 2 || Global.curLevel == 4 || Global.curLevel == 5:
+		if Global.curLevel == 2 || Global.curLevel == 4 || \
+		Global.curLevel == 5 || Global.curLevel == 6:
 			Global.maxPointsOnScreen += 4
-		if Global.curLevel == 2 || Global.curLevel == 3 || Global.curLevel == 5:
+		if Global.curLevel == 2 || Global.curLevel == 3 || \
+		Global.curLevel == 5 || Global.curLevel == 6:
 			emit_signal("changeRespawnTime")
 			
