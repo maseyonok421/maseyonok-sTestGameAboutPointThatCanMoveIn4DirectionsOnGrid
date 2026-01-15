@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="maseyonok-sTestGameAboutPointThatCanMoveIn4DirectoriesOnGrid"
-run/main_scene="uid://ct3fjmk24n06b"
+run/main_scene="uid://cp0c1gbu862wf"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
