@@ -1,7 +1,7 @@
 extends Node2D
 
 var curNumberOfPoints = 0
-var listOfPoints = []
+var listOfPointPositions = []
 var pointScene = preload("res://prefabs//point.tscn")
 
 
@@ -16,6 +16,8 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	
+	print(listOfPointPositions)
+	
 	if ( curNumberOfPoints >= Global.maxPointsOnScreen ):
 		return
 	
@@ -29,16 +31,17 @@ func _on_timer_timeout() -> void:
 		curY = randi() \
 			% (Global.gridSize*2+1) - Global.gridSize
 		
-		if ( !listOfPoints.has(Vector2(curX, curY)) ):
+		if ( !listOfPointPositions.has(Vector2(curX, curY)) ):
 			break
 	
 	pointInstance.positionX = curX
 	pointInstance.positionY = curY
 	add_child(pointInstance)
 	pointInstance.pointDestroyed.connect(_on_point_destroyed)
+	listOfPointPositions.push_back(Vector2(curX, curY));
 	
 	curNumberOfPoints += 1
 
 func _on_point_destroyed(pointPos) -> void:
-	listOfPoints.erase(pointPos)
+	listOfPointPositions.erase(pointPos)
 	curNumberOfPoints -= 1
