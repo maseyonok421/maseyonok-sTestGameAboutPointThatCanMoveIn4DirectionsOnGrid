@@ -67,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="bgTry" type="ColorRect" parent="."]
+[node name="bgShadered" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_7nrmo")
 offset_left = -643.0
 offset_top = -363.0

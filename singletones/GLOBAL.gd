@@ -1,5 +1,7 @@
 extends Node
 
+const gameVersion = 1
+
 const gridLineSize = 6
 const cellSize = 64
 var fullCellSize = gridLineSize + cellSize

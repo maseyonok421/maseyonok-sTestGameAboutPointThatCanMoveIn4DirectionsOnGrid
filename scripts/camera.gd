@@ -13,6 +13,20 @@ var curZoom
 func _showNewLevel():
 	$lvlTransitionBG.modulate = Color(1, 1, 1, 1)
 	$lvlTransitionBG/decayTimer.start()
+	$lvlTransitionBG/decayTimer.wait_time = 0.09
+	$lvlTransitionBG/Label.text = "NEW LEVEL REACHED"
+
+func _showGameEnd():
+	$lvlTransitionBG.modulate = Color(1, 1, 1, 1)
+	$lvlTransitionBG/decayTimer.start()
+	$lvlTransitionBG/decayTimer.wait_time = 1.3
+	$lvlTransitionBG/Label.text = "GAME FINISHED"
+
+func _showGameStart():
+	$lvlTransitionBG.modulate = Color(1, 1, 1, 1)
+	$lvlTransitionBG/decayTimer.start()
+	$lvlTransitionBG/decayTimer.wait_time = 0.15
+	$lvlTransitionBG/Label.text = "REACH 6 LEVEL"
 
 func moveToCoordinates() -> void:
 	global_position.x = \
@@ -27,6 +41,8 @@ func _ready() -> void:
 	playerY = 0
 	get_tree().get_first_node_in_group("Player").getPlayerCoords.connect(_on_getting_player_coords)
 	get_parent().showNewLevel.connect(_showNewLevel)
+	get_parent().showGameEnd.connect(_showGameEnd)
+	get_parent().showGameStart.connect(_showGameStart)
 	print("Camera Inicialization OK")
 
 

@@ -1,10 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://ct3fjmk24n06b"]
+[gd_scene load_steps=11 format=3 uid="uid://ct3fjmk24n06b"]
 
 [ext_resource type="Script" uid="uid://b3h1tm0qex3o5" path="res://scripts/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://d24wgwq3572gw" path="res://prefabs/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://djan4vsx0to1k" path="res://prefabs/point_spawner.tscn" id="2_iywne"]
+[ext_resource type="Shader" uid="uid://bivhswrdu0bg0" path="res://shaders/bgShader.gdshader" id="2_p57ef"]
 [ext_resource type="Script" uid="uid://bw3u537vgvml3" path="res://scripts/bgGenerator.gd" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c2kww08j1twov" path="res://prefabs/camera.tscn" id="5_iywne"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u5sy4"]
+shader = ExtResource("2_p57ef")
+shader_parameter/alph = 0.37
+shader_parameter/spd = 1.0
+shader_parameter/amnt = 0.25
+shader_parameter/col1 = Color(0.53479755, 0.22414282, 1, 1)
+shader_parameter/col2 = Color(0.66226745, 0.00017750621, 0.6120817, 1)
 
 [sub_resource type="Gradient" id="Gradient_iywne"]
 offsets = PackedFloat32Array(0, 0.41044775, 0.73134327, 1)
@@ -39,6 +48,20 @@ offset_top = -3882.0
 offset_right = 6374.0
 offset_bottom = 4638.0
 color = Color(0, 0, 0, 1)
+
+[node name="bgShadered" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_u5sy4")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1503.3081
+offset_top = -847.0
+offset_right = 1503.3081
+offset_bottom = 847.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="bg" type="Sprite2D" parent="."]
 script = ExtResource("3_lnu2h")
