@@ -7,7 +7,7 @@ var labels
 #@export var musScene  = load("res://scenes/mus_manager.tscn").instantiate()
 
 func _ready() -> void:
-	labels = [$newGame, $load, $exit]
+	labels = [$newGame, $exit]
 	#get_tree().get_root().add_child(musScene)
 	print("Main Menu Inicizlization OK")
 
@@ -31,11 +31,9 @@ func _process(delta: float) -> void:
 		if curLbl < 0: curLbl = 0
 	if Input.is_action_just_pressed("ui_down"):
 		curLbl += 1
-		if curLbl > 2: curLbl = 2
+		if curLbl > 1: curLbl = 1
 	if Input.is_action_just_pressed("ui_accept"):
 		if   curLbl == 0:
-			changeSceneTo(gameScene)
-		elif curLbl == 1:
 			changeSceneTo(gameScene)
 		else:
 			get_tree().quit()

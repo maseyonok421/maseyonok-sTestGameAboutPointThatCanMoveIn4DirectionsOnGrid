@@ -1,8 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp0c1gbu862wf"]
+[gd_scene load_steps=10 format=3 uid="uid://cp0c1gbu862wf"]
 
 [ext_resource type="Script" uid="uid://ctiw5e5wjg7rh" path="res://scripts/main_menu.gd" id="1_48ign"]
 [ext_resource type="Shader" uid="uid://d1bql1rmvfe7x" path="res://shaders/multishader.gdshader" id="1_qkhwq"]
 [ext_resource type="FontFile" uid="uid://6cf8elgrtmi6" path="res://fonts/WebPlus IBM MDA/web_ibm_mda.ttf" id="2_3d1i7"]
+[ext_resource type="Shader" uid="uid://bivhswrdu0bg0" path="res://shaders/bgShader.gdshader" id="2_l7wge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7nrmo"]
+shader = ExtResource("2_l7wge")
+shader_parameter/alph = 0.37
+shader_parameter/spd = 1.0
+shader_parameter/amnt = 0.25
+shader_parameter/col1 = Color(0.53479755, 0.22414282, 1, 1)
+shader_parameter/col2 = Color(0.66226745, 0.00017750621, 0.6120817, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3d1i7"]
 shader = ExtResource("1_qkhwq")
@@ -58,6 +67,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="bgTry" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7nrmo")
+offset_left = -643.0
+offset_top = -363.0
+offset_right = 642.0
+offset_bottom = 361.0
+
 [node name="gameName" type="Label" parent="."]
 anchors_preset = 13
 anchor_left = 0.5
@@ -81,33 +97,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -360.0
-offset_top = -24.5
+offset_top = -0.5
 offset_right = 360.0
-offset_bottom = 56.5
+offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_3d1i7")
 theme_override_font_sizes/font_size = 45
 text = "New Game"
-horizontal_alignment = 1
-
-[node name="load" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = 23.5
-offset_right = 360.0
-offset_bottom = 104.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_3d1i7")
-theme_override_font_sizes/font_size = 45
-text = "Load"
 horizontal_alignment = 1
 
 [node name="exit" type="Label" parent="."]
@@ -117,9 +115,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -360.0
-offset_top = 79.5
+offset_top = 55.5
 offset_right = 360.0
-offset_bottom = 160.5
+offset_bottom = 136.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
