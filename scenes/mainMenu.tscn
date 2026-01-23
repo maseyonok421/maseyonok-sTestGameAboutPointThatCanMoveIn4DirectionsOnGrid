@@ -97,15 +97,35 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -360.0
-offset_top = -0.5
+offset_top = -24.5
 offset_right = 360.0
-offset_bottom = 80.5
+offset_bottom = 56.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_3d1i7")
 theme_override_font_sizes/font_size = 45
 text = "New Game"
+horizontal_alignment = 1
+
+[node name="settings" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = 31.5
+offset_right = 360.0
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_3d1i7")
+theme_override_font_sizes/font_size = 45
+text = "Game Settings"
 horizontal_alignment = 1
 
 [node name="exit" type="Label" parent="."]
@@ -115,11 +135,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -360.0
-offset_top = 55.5
+offset_top = 89.5
 offset_right = 360.0
-offset_bottom = 136.5
+offset_bottom = 170.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_3d1i7")
 theme_override_font_sizes/font_size = 45
@@ -139,8 +160,13 @@ offset_right = 640.0
 offset_bottom = 366.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_48ign")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="mouse_entered" from="newGame" to="." method="_on_new_game_mouse_entered"]
+[connection signal="mouse_entered" from="settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]

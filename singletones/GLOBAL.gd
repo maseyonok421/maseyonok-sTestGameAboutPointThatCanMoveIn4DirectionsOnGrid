@@ -1,6 +1,6 @@
 extends Node
 
-const gameVersion = 1
+const gameVersion = 1.1
 
 const gridLineSize = 6
 const cellSize = 64

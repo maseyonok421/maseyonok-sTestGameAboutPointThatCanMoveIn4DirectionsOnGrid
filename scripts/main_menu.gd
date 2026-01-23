@@ -2,12 +2,14 @@ extends Node2D
 
 var curLbl = 0
 var labels
+var cntOfLbls
 
 @export var gameScene = preload("res://scenes/game.tscn").instantiate()
 #@export var musScene  = load("res://scenes/mus_manager.tscn").instantiate()
 
 func _ready() -> void:
-	labels = [$newGame, $exit]
+	labels = [$newGame, $settings, $exit]
+	cntOfLbls = labels.size()
 	#get_tree().get_root().add_child(musScene)
 	print("Main Menu Inicizlization OK")
 
@@ -31,12 +33,25 @@ func _process(delta: float) -> void:
 		if curLbl < 0: curLbl = 0
 	if Input.is_action_just_pressed("ui_down"):
 		curLbl += 1
-		if curLbl > 1: curLbl = 1
+		if curLbl > cntOfLbls-1: curLbl = cntOfLbls-1
 	if Input.is_action_just_pressed("ui_accept"):
 		if   curLbl == 0:
 			changeSceneTo(gameScene)
+		elif curLbl == 1:
+			pass
 		else:
 			get_tree().quit()
 	
 	
 	redrawLabels()
+
+
+
+func _on_new_game_mouse_entered() -> void:
+	curLbl = 0
+
+func _on_settings_mouse_entered() -> void:
+	curLbl = 1
+
+func _on_exit_mouse_entered() -> void:
+	curLbl = 2
